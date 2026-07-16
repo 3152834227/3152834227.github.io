@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="wk 的俄罗斯方块小游戏">
+    <meta name="author" content="wk">
+    <title>俄罗斯方块 | wk</title>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/tetris.css">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="game-header">
+            <a class="brand" href="/" aria-label="返回 wk 的主页">
+                <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+                <span>wk / arcade</span>
+            </a>
+            <a class="home-link" href="/">返回主页</a>
+        </header>
+
+        <main class="game-layout">
+            <section class="intro-panel" aria-labelledby="game-title">
+                <p class="eyebrow">BLOCKS · FOCUS · FLOW</p>
+                <h1 id="game-title">俄罗斯方块</h1>
+                <p class="lede">堆叠、消行、提速。别让方块碰到顶部。</p>
+
+                <div class="stats" aria-label="游戏数据">
+                    <div class="stat-card">
+                        <span>分数</span>
+                        <strong id="score">0</strong>
+                    </div>
+                    <div class="stat-card">
+                        <span>消行</span>
+                        <strong id="lines">0</strong>
+                    </div>
+                    <div class="stat-card">
+                        <span>等级</span>
+                        <strong id="level">1</strong>
+                    </div>
+                    <div class="stat-card">
+                        <span>最高分</span>
+                        <strong id="high-score">0</strong>
+                    </div>
+                </div>
+
+                <div class="next-card">
+                    <div>
+                        <span class="panel-label">下一个</span>
+                        <p>提前规划落点</p>
+                    </div>
+                    <canvas id="next" width="120" height="120" aria-label="下一个方块预览"></canvas>
+                </div>
+
+                <div class="desktop-controls">
+                    <span class="panel-label">键盘操作</span>
+                    <dl>
+                        <div><dt>← → / A D</dt><dd>左右移动</dd></div>
+                        <div><dt>↑ / W</dt><dd>旋转</dd></div>
+                        <div><dt>↓ / S</dt><dd>加速下落</dd></div>
+                        <div><dt>空格</dt><dd>直接落下</dd></div>
+                        <div><dt>P / Esc</dt><dd>暂停</dd></div>
+                    </dl>
+                </div>
+            </section>
+
+            <section class="board-panel" aria-label="俄罗斯方块游戏区">
+                <div class="board-frame">
+                    <canvas id="game" width="300" height="600" tabindex="0" aria-label="俄罗斯方块游戏画布"></canvas>
+                    <div id="overlay" class="overlay">
+                        <div class="overlay-box">
+                            <span id="overlay-kicker">READY?</span>
+                            <h2 id="overlay-title">准备开始</h2>
+                            <p id="overlay-message">点击按钮或按回车键开始游戏</p>
+                            <button id="primary-action" class="primary-button" type="button">开始游戏</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-row">
+                    <button id="pause-button" class="secondary-button" type="button" disabled>暂停</button>
+                    <button id="restart-button" class="secondary-button" type="button">重新开始</button>
+                </div>
+
+                <div class="touch-controls" aria-label="触屏操作">
+                    <button type="button" data-action="left" aria-label="向左移动">←</button>
+                    <button type="button" data-action="rotate" aria-label="旋转方块">↻</button>
+                    <button type="button" data-action="right" aria-label="向右移动">→</button>
+                    <button type="button" data-action="down" aria-label="加速下落">↓</button>
+                    <button class="wide" type="button" data-action="drop" aria-label="直接落下">落下</button>
+                </div>
+                <p id="game-status" class="sr-only" aria-live="polite">游戏尚未开始</p>
+            </section>
+        </main>
+
+        <footer class="game-footer">
+            <span>MADE FOR WK</span>
+            <span>2026 · BROWSER EDITION</span>
+        </footer>
+    </div>
+    <script src="/js/tetris.js"></script>
+</body>
+</html>
